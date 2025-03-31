@@ -324,23 +324,23 @@ ul {
 .monkey-tooltip {
   display: none;
   position: absolute;
-  top: -70px;
+  top: -70px; 
   left: 50%;
   transform: translateX(-50%);
   background: #1a1a1a;
   border: 2px solid #fff;
   border-radius: 4px;
   padding: 8px 10px;
-  text-align: center;
-  width: 160px;
+  width: 160px;         /* Adjust as needed */
+  text-align: center;   /* Ensures text & inline elements center-align */
   z-index: 999;
 }
 
 .tiny-monkey {
-  width: 45px;
+  display: block;       /* Make the image a block so margin works */
+  margin: 0 auto 5px;   /* Center horizontally, with a 5px bottom gap */
+  width: 50px; 
   height: auto;
-  margin-bottom: 5px;
-  vertical-align: middle;
 }
 
 .monkey-message {
@@ -572,4 +572,9 @@ ul {
   .hamburger {
     display: flex;
   }
+}
+section[id] {
+  /* Offsets the final scroll position by ~80px 
+     (adjust to match your header’s height) */
+  scroll-margin-top: 80px;
 }
