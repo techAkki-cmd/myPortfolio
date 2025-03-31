@@ -25,15 +25,29 @@
 
   
   <header class="main-header">
-    <div class="logo">A.K.</div>
-    <nav class="nav-menu">
+    <div class="logo">Gourav Kumar</div>
+    <!-- Hamburger icon -->
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <!-- 3 lines for the burger bars; hidden when menu is open -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  
+    <!-- The Slide-Out Menu -->
+    <nav class="mobile-nav" id="mobileNav">
+      <div class="nav-header">
+        <h2>NAVIGATION</h2>
+        <!-- Close/X icon -->
+        <button class="close-btn" onclick="toggleMenu()">✕</button>
+      </div>
+      <hr />
       <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -245,6 +259,21 @@
     <p>&copy; 2025 ARIJIT. All rights reserved.</p>
   </footer>
 
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+  
+    function toggleMenu() {
+      // Toggle the 'open' class on the mobile nav
+      mobileNav.classList.toggle('open');
+  
+      // Optionally, toggle some styling on the hamburger bars (e.g., turn them into an "X")
+      // For simplicity, we won't transform hamburger bars here. 
+      // But you could do something like:
+      // hamburger.classList.toggle('active');
+    }
+  </script>
   
 
 </body>

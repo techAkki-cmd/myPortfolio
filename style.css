@@ -506,3 +506,104 @@ ul {
     margin-bottom: 5px;
   }
 }
+/* Basic header layout (logo + hamburger icon on the right) */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Hamburger icon (3 lines) */
+.hamburger {
+  display: none; /* Hidden on desktop by default */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff; /* White bars */
+  transition: all 0.3s ease;
+}
+
+/* The mobile slide-out menu (hidden offscreen initially) */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;   /* keep it off-screen to the right */
+  width: 60%;
+  height: 100%;
+  background: #111; /* or #000; your dark color */
+  transition: right 0.4s ease;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5); 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.mobile-nav .nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-nav .nav-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.mobile-nav .close-btn {
+  background: #39ff00; /* bright green circle or something you like */
+  border: none;
+  border-radius: 50%;
+  color: #000;
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Nav links list inside slide-out */
+.mobile-nav ul {
+  list-style: none;
+  margin-top: 20px;
+}
+.mobile-nav li {
+  margin: 15px 0;
+}
+.mobile-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* When the nav is "open", we shift from right: -100% to right: 0 */
+.mobile-nav.open {
+  right: 0;
+}
+
+/* MEDIA QUERY: Show hamburger on smaller screens, hide normal menu if you want */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* show hamburger icon on mobile */
+  }
+  /* If you have a "regular" .nav-menu ul, hide it at small widths 
+     unless you prefer it displayed always with hamburger as well. 
+     Example:
+       .nav-menu ul {
+         display: none; 
+       }
+  */
+}
