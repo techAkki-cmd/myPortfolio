@@ -182,7 +182,11 @@ ul {
 
 .hero-image {
   flex: 1 1 300px;
-  text-align: center;
+  /* Previously: text-align: center;
+     Replace with flex centering: */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-image img {
