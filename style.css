@@ -578,3 +578,21 @@ section[id] {
      (adjust to match your header’s height) */
   scroll-margin-top: 80px;
 }
+/* Typing Effect for "I AM <span id='typed'></span>" */
+#typed::after {
+  content: '|';
+  margin-left: 5px;
+  opacity: 1;
+  animation: blinkCursor 0.7s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+#typed {
+  font-weight: 700;      /* or 300, to match your theme */
+  color: #008fff;        /* for a highlight color */
+  letter-spacing: 1px;
+}

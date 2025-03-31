@@ -27,7 +27,7 @@
   =============================== -->
   <header class="main-header">
     <!-- Logo -->
-    <div class="logo">PORTFOLIO</div>
+    <div class="logo">ARIJIT'S PORTFOLIO</div>
 
     <!-- DESKTOP NAV: visible on wider screens -->
     <nav class="nav-menu desktop-nav">
@@ -71,7 +71,7 @@
   =============================== -->
   <section id="home" class="home-section">
     <div class="hero-content">
-      <h1>I'M <span class="accent">ARIJIT</span></h1>
+      <h1>I AM <span id="typed"></span></h1>
       <p class="subtitle">Backend Developer & Aspiring Full Stack Engineer</p>
       <p class="hero-desc">
         Sophomore B.Tech student at IIIT Kota, specializing in Java Spring Boot
@@ -287,6 +287,46 @@
     function toggleMenu() {
       mobileNav.classList.toggle('open');
     }
+
+    const words = ["Developer", "Marketeer", "Freelancer"];
+  let currentWordIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+
+  const typedSpan = document.getElementById("typed");
+  const TYPING_SPEED = 150;
+  const ERASING_SPEED = 100;
+  const DELAY_BETWEEN_WORDS = 1000;
+
+  function typeWords() {
+    const currentWord = words[currentWordIndex];
+
+    if (!isDeleting) {
+      // Typing forward
+      typedSpan.textContent = currentWord.slice(0, currentCharIndex + 1);
+      currentCharIndex++;
+      if (currentCharIndex === currentWord.length) {
+        setTimeout(() => { isDeleting = true; }, DELAY_BETWEEN_WORDS);
+      }
+    } else {
+      // Erasing backward
+      typedSpan.textContent = currentWord.slice(0, currentCharIndex - 1);
+      currentCharIndex--;
+      if (currentCharIndex === 0) {
+        isDeleting = false;
+        currentWordIndex = (currentWordIndex + 1) % words.length;
+      }
+    }
+
+    let speed = isDeleting ? ERASING_SPEED : TYPING_SPEED;
+    if (!isDeleting && currentCharIndex === currentWord.length) {
+      speed = DELAY_BETWEEN_WORDS;
+    }
+    setTimeout(typeWords, speed);
+  }
+
+  // Start the animation
+  typeWords();
   </script>
 </body>
 </html>
