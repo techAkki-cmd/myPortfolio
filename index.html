@@ -2,190 +2,201 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Portfolio - Dark Theme with Monkey & Namaste</title>
+  <title>My Dark-Themed Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts (Optional) -->
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"
   />
-  
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  
+  <!-- ==============================
+       MONKEY OVERLAY ON LOAD
+  =============================== -->
   <div id="monkey-entry">
-   
-    <img src="monkey.jpeg" alt="Monkey in a Suit" class="monkey-image" />
-    <div class="overlay-namaste">NAMASTE!</div>
+    <img src="monkey.jpeg" alt="Monkey" class="monkey-image" />
+    <div class="overlay-namaste">Namaste</div>
   </div>
 
-  
+  <!-- ==============================
+       HEADER
+  =============================== -->
   <header class="main-header">
-    <div class="logo">Portfolio</div>
-    <!-- Hamburger icon -->
+    <!-- Logo -->
+    <div class="logo">PORTFOLIO</div>
+
+    <!-- DESKTOP NAV: visible on wider screens -->
+    <nav class="nav-menu desktop-nav">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HAMBURGER ICON: shown on mobile -->
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <!-- 3 lines for the burger bars; hidden when menu is open -->
       <span></span>
       <span></span>
       <span></span>
     </div>
-  
-    <!-- The Slide-Out Menu -->
+
+    <!-- SLIDE-OUT NAV: appears when hamburger is clicked -->
     <nav class="mobile-nav" id="mobileNav">
       <div class="nav-header">
-        <h2>NAVIGATION</h2>
-        <!-- Close/X icon -->
+        <h2>Navigation</h2>
         <button class="close-btn" onclick="toggleMenu()">✕</button>
       </div>
       <hr />
       <ul>
         <li><a href="#home" onclick="toggleMenu()">Home</a></li>
         <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+        <li><a href="#resume" onclick="toggleMenu()">Resume</a></li>
+        <li><a href="#work" onclick="toggleMenu()">Work</a></li>
         <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  
+  <!-- ==============================
+       HOME SECTION
+  =============================== -->
   <section id="home" class="home-section">
     <div class="hero-content">
-      <h1>I'M <span class="accent">ARIJIT</span></h1>
-      <p class="subtitle">Backend Developer &amp; Aspiring Full Stack Engineer</p>
+      <h1>I'M <span class="accent">Gourav Kumar</span></h1>
+      <p class="subtitle">Backend Developer & Aspiring Full Stack Engineer</p>
       <p class="hero-desc">
-        Sophomore B.Tech student at IIIT Kota, specializing in Java Spring Boot
-        and data structures & algorithms. Highly motivated to build robust
-        backend architectures and transform ideas into real-world solutions.
+        4th-year B.Tech student at IIIT Kota, learning Java, Spring Boot,
+        and data structures &amp; algorithms. Building robust backend
+        architectures is my passion!
       </p>
       <a href="#about" class="hero-btn">Learn More &rarr;</a>
     </div>
     <div class="hero-image">
-      
-      <img src="arjit.jpeg" alt="Hero placeholder" />
+      <img src="arjit.jpeg" alt="Hero" />
     </div>
   </section>
 
-  
+  <!-- ==============================
+       ABOUT SECTION
+  =============================== -->
   <section id="about" class="dark-section">
     <div class="container">
       <h2>About Me</h2>
       <p class="section-desc">
-        I'm a second-year Computer Science student at IIIT Kota with a passion
-        for Java, Spring Boot, and building scalable backend systems. I enjoy
-        solving complex problems with data structures and algorithms in my spare
-        time. Currently exploring job opportunities, particularly interested in
-        roles focused on backend development or full-stack growth.
+        I'm an enthusiastic developer who loves leveraging Spring Boot for
+        backend services. Problem-solving and algorithmic challenges are
+        my forte. Ready to take on new adventures in software development!
       </p>
 
-       
-    <div class="skills-grid">
+      <!-- Skills Grid with Monkey Tooltips -->
+      <div class="skills-grid">
+        <!-- Java Skill -->
+        <div class="skill-circle">
+          <div class="circle" data-percent="90"></div>
+          <h3>Java</h3>
+          <div class="monkey-tooltip">
+            <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+            <p class="monkey-message">Yes, this is my favorite!</p>
+          </div>
+        </div>
 
-     
-      <div class="skill-circle">
-        
-        <div class="circle" data-percent="90"></div>
-        <h3>Java</h3>
-        
-        <div class="monkey-tooltip">
-          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
-          <p class="monkey-message">Yes, this is my favorite!</p>
+        <!-- Spring Boot Skill -->
+        <div class="skill-circle">
+          <div class="circle" data-percent="80"></div>
+          <h3>Spring Boot</h3>
+          <div class="monkey-tooltip">
+            <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+            <p class="monkey-message">Makes backend a breeze!</p>
+          </div>
+        </div>
+
+        <!-- DSA Skill -->
+        <div class="skill-circle">
+          <div class="circle" data-percent="75"></div>
+          <h3>DSA</h3>
+          <div class="monkey-tooltip">
+            <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+            <p class="monkey-message">Love tackling tough code puzzles!</p>
+          </div>
+        </div>
+
+        <!-- SQL Skill -->
+        <div class="skill-circle">
+          <div class="circle" data-percent="70"></div>
+          <h3>SQL</h3>
+          <div class="monkey-tooltip">
+            <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+            <p class="monkey-message">Data storage done right!</p>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      
-      <div class="skill-circle">
-        <div class="circle" data-percent="80"></div>
-        <h3>Spring Boot</h3>
-        <div class="monkey-tooltip">
-          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
-          <p class="monkey-message">
-            Spring Boot makes backend a breeze!
-          </p>
-        </div>
-      </div>
-
-      
-      <div class="skill-circle">
-        <div class="circle" data-percent="75"></div>
-        <h3>DSA</h3>
-        <div class="monkey-tooltip">
-          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
-          <p class="monkey-message">I love problem-solving challenges!</p>
-        </div>
-      </div>
-
-     
-      <div class="skill-circle">
-        <div class="circle" data-percent="70"></div>
-        <h3>SQL</h3>
-        <div class="monkey-tooltip">
-          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
-          <p class="monkey-message">Relational databases are a must-have skill.</p>
-        </div>
-      </div>
-
-    </div> 
-  </div> 
-</section>
-
-  
+  <!-- ==============================
+       SERVICES SECTION
+  =============================== -->
   <section id="services" class="dark-section">
     <div class="container">
-      <h2>What I Do</h2>
+      <h2>Services</h2>
       <div class="services-grid">
         <div class="service-box">
-          <div class="service-icon">🎨</div>
-          <h3>Web Design</h3>
-          <p>
-            Clean and modern layouts to make your online presence stand out,
-            though I'm mainly a backend developer!
-          </p>
-        </div>
-        <div class="service-box">
           <div class="service-icon">💻</div>
-          <h3>Backend</h3>
+          <h3>Backend Development</h3>
           <p>
-            Building RESTful APIs, microservices, and robust server-side logic
-            with Java Spring Boot.
+            Building high-performance web backends in Java and Spring Boot,
+            focusing on security and scalability.
           </p>
         </div>
         <div class="service-box">
           <div class="service-icon">⚙️</div>
-          <h3>DSA & Problem Solving</h3>
+          <h3>Data Structures</h3>
           <p>
-            Implementing efficient solutions using data structures and
-            algorithms in Java.
+            Optimizing solutions using data structures and algorithms to
+            ensure efficiency.
+          </p>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🎨</div>
+          <h3>Web Design (Basic)</h3>
+          <p>
+            Creating clean, modern interfaces for personal projects and
+            small landing pages.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  
+  <!-- ==============================
+       RESUME SECTION
+  =============================== -->
   <section id="resume" class="dark-section">
     <div class="container">
-      <h2>People I've Worked With</h2>
+      <h2>Experience & Resume</h2>
       <div class="resume-switch">
         <button class="active">Experience</button>
-        <!-- Replace 'your-resume-file.pdf' with your actual résumé file path or URL -->
+        <!-- Replace with your PDF link or file -->
         <button onclick="window.open('your-resume-file.pdf', '_blank')">Resume</button>
       </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-circle"></div>
           <div class="timeline-content">
-            <h3>Project Role</h3>
-            <span class="timeline-date">August 2024 - Present</span>
+            <h3>Backend Intern</h3>
+            <span class="timeline-date">May 2024 - July 2024</span>
             <p>
-              Gained hands-on experience in Java Spring Boot. Built REST
-              endpoints for various hackathon projects and improved application
-              performance by more than 30%.
+              Built REST APIs for a job-portal application, improving data
+              throughput by 30%.
             </p>
           </div>
         </div>
@@ -193,10 +204,10 @@
           <div class="timeline-circle"></div>
           <div class="timeline-content">
             <h3>Open Source Contributor</h3>
-            <span class="timeline-date">Aug 2024 - Present</span>
+            <span class="timeline-date">Aug 2023 - Dec 2023</span>
             <p>
-              Contributed to open source Java frameworks, improving my
-              understanding of enterprise-scale codebases.
+              Contributed to open source Java frameworks, honing my
+              understanding of enterprise-scale code.
             </p>
           </div>
         </div>
@@ -204,32 +215,38 @@
     </div>
   </section>
 
-  
-<section id="work" class="dark-section">
-  <div class="container">
-    <h2>My Project</h2>
-    <p class="section-desc">
-      Below is my main project showcasing a **Job Portal** application:
-    </p>
-    <div class="single-project">
-      <img src="arijitportal.jpeg" alt="Job Portal Application" />
-      <div class="project-details">
-        <h3>Job Portal Application</h3>
-        <p>
-          A full-featured platform where employers can post jobs, and 
-          candidates can apply. Built with Java Spring Boot for backend, 
-          integrated RESTful APIs, and secure user authentication.
-        </p>
+  <!-- ==============================
+       WORK (PROJECTS) SECTION
+  =============================== -->
+  <section id="work" class="dark-section">
+    <div class="container">
+      <h2>My Project</h2>
+      <p class="section-desc">
+        Showcasing my main project—a Job Portal Application:
+      </p>
+      <div class="single-project">
+        <img src="arijitportal.jpeg" alt="Job Portal" />
+        <div class="project-details">
+          <h3>Job Portal Application</h3>
+          <p>
+            A full-featured platform where employers post jobs and applicants
+            apply securely. Implemented RESTful APIs using Spring Boot and 
+            integrated user authentication.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  
+  <!-- ==============================
+       CONTACT SECTION
+  =============================== -->
   <section id="contact" class="dark-section">
     <div class="container">
       <h2>Contact</h2>
-      <p class="section-desc">Get in touch.</p>
+      <p class="section-desc">
+        Drop me a line on any queries or opportunities.
+      </p>
       <form class="contact-form">
         <label>Name</label>
         <input type="text" placeholder="Your Name" />
@@ -242,10 +259,10 @@
 
       <div class="contact-details">
         <div class="contact-item">
-          <p><strong>Phone:</strong> +91 7451016676</p>
+          <p><strong>Phone:</strong> +91 1234567890</p>
         </div>
         <div class="contact-item">
-          <p><strong>Email:</strong> kumararijit8672@gmail.com</p>
+          <p><strong>Email:</strong> youremail@domain.com</p>
         </div>
         <div class="contact-item">
           <p><strong>Location:</strong> IIIT Kota, Rajasthan, India</p>
@@ -254,28 +271,23 @@
     </div>
   </section>
 
-
-  
+  <!-- ==============================
+       FOOTER
+  =============================== -->
   <footer class="main-footer">
-    <p>&copy; 2025 ARIJIT. All rights reserved.</p>
+    <p>&copy; 2025 Gourav Kumar. All rights reserved.</p>
   </footer>
 
-
+  <!-- ==============================
+       JS FOR HAMBURGER TOGGLE
+  =============================== -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
-  
+
     function toggleMenu() {
-      // Toggle the 'open' class on the mobile nav
       mobileNav.classList.toggle('open');
-  
-      // Optionally, toggle some styling on the hamburger bars (e.g., turn them into an "X")
-      // For simplicity, we won't transform hamburger bars here. 
-      // But you could do something like:
-      // hamburger.classList.toggle('active');
     }
   </script>
-  
-
 </body>
 </html>

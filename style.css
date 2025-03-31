@@ -1,3 +1,6 @@
+/* =============================
+   GLOBAL RESETS & BASE
+============================= */
 img {
   max-width: 100%;
   height: auto;
@@ -11,7 +14,6 @@ img {
 }
 
 html {
-  
   scroll-behavior: smooth;
 }
 
@@ -22,32 +24,32 @@ body {
   line-height: 1.6;
 }
 
-
 a {
   text-decoration: none;
   color: #fff;
 }
 
-
 ul {
   list-style: none;
 }
 
+/* =============================
+   MONKEY OVERLAY
+============================= */
 #monkey-entry {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #000; 
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; 
+  flex-direction: column;
   z-index: 9999;
   animation: overlayFade 4.5s forwards;
 }
-
 
 .monkey-image {
   max-width: 300px;
@@ -56,7 +58,6 @@ ul {
   margin-bottom: 20px;
 }
 
-
 .overlay-namaste {
   font-size: 2rem;
   font-weight: 700;
@@ -64,7 +65,6 @@ ul {
   text-shadow: 0 0 5px #000;
   animation: namasteFade 3s linear forwards;
 }
-
 
 @keyframes overlayFade {
   0% {
@@ -78,7 +78,6 @@ ul {
     visibility: hidden;
   }
 }
-
 
 @keyframes namasteFade {
   0% {
@@ -98,41 +97,114 @@ ul {
   }
 }
 
-
+/* =============================
+   HEADER & NAV
+============================= */
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
   background: #1a1a1a;
+  padding: 20px;
   position: sticky;
   top: 0;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .logo {
-  font-family: 'Parisienne', cursive;
-  font-size: 2rem;     /* adjust size as desired */
-  letter-spacing: 1px; /* optional for style */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
 }
-.nav-menu ul {
+
+/* DESKTOP NAV (horizontal) */
+.desktop-nav ul {
   display: flex;
   gap: 20px;
 }
 
-
-.nav-menu a {
-  position: relative;
-  padding: 5px 0;
+.desktop-nav a {
+  color: #fff;
+  text-decoration: none;
   text-transform: uppercase;
+  padding: 5px 0;
 }
 
-.nav-menu a.active,
-.nav-menu a:hover {
+.desktop-nav a.active,
+.desktop-nav a:hover {
   border-bottom: 2px solid #fff;
 }
 
+/* HAMBURGER ICON */
+.hamburger {
+  display: none; 
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
 
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* MOBILE NAV (slide-out) */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  height: 100%;
+  background: #111;
+  transition: right 0.4s ease;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav.open {
+  right: 0; /* slide in */
+}
+
+.mobile-nav .nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-nav .close-btn {
+  background: #39ff00;
+  border: none;
+  border-radius: 50%;
+  color: #000;
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.mobile-nav li {
+  margin: 15px 0;
+}
+
+.mobile-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* =============================
+   HOME SECTION (HERO)
+============================= */
 .home-section {
   display: flex;
   flex-wrap: wrap;
@@ -182,8 +254,6 @@ ul {
 
 .hero-image {
   flex: 1 1 300px;
-  /* Previously: text-align: center;
-     Replace with flex centering: */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +265,9 @@ ul {
   object-fit: cover;
 }
 
-/* DARK SECTION STYLING */
+/* =============================
+   DARK SECTION (ABOUT, ETC.)
+============================= */
 .dark-section {
   background: #000;
   padding: 60px 20px;
@@ -214,7 +286,9 @@ ul {
   font-weight: 300;
 }
 
-/* ABOUT SKILLS */
+/* =============================
+   ABOUT: SKILLS
+============================= */
 .skills-grid {
   display: flex;
   justify-content: center;
@@ -223,9 +297,9 @@ ul {
 }
 
 .skill-circle {
-  position: relative; 
+  position: relative;
   display: inline-block;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .circle {
@@ -245,10 +319,12 @@ ul {
   font-size: 1.1rem;
   font-weight: bold;
 }
+
+/* Monkey tooltip */
 .monkey-tooltip {
   display: none;
   position: absolute;
-  top: -70px; 
+  top: -70px;
   left: 50%;
   transform: translateX(-50%);
   background: #1a1a1a;
@@ -260,28 +336,23 @@ ul {
   z-index: 999;
 }
 
-
-
- Tiny monkey icon */
 .tiny-monkey {
-  width: 45px; 
+  width: 45px;
   height: auto;
   margin-bottom: 5px;
   vertical-align: middle;
 }
 
-
 .monkey-message {
   margin: 0;
   font-size: 0.9rem;
-  color: #ffeb3b; 
+  color: #ffeb3b;
 }
 
 .skill-circle:hover .monkey-tooltip {
   display: block;
   animation: fadeIn 0.3s ease forwards;
 }
-
 
 @keyframes fadeIn {
   0% {
@@ -294,7 +365,9 @@ ul {
   }
 }
 
-
+/* =============================
+   SERVICES
+============================= */
 .services-grid {
   display: flex;
   justify-content: center;
@@ -316,7 +389,9 @@ ul {
   margin-bottom: 10px;
 }
 
-
+/* =============================
+   RESUME
+============================= */
 .resume-switch {
   margin: 40px 0;
 }
@@ -373,7 +448,9 @@ ul {
   opacity: 0.8;
 }
 
-
+/* =============================
+   WORK
+============================= */
 #work .single-project {
   display: flex;
   flex-direction: column;
@@ -400,9 +477,9 @@ ul {
   color: #008fff;
 }
 
-
-
-
+/* =============================
+   CONTACT
+============================= */
 .contact-form {
   max-width: 600px;
   margin: 0 auto 40px;
@@ -447,7 +524,9 @@ ul {
   font-size: 0.95rem;
 }
 
-
+/* =============================
+   FOOTER
+============================= */
 .main-footer {
   padding: 20px;
   text-align: center;
@@ -456,154 +535,41 @@ ul {
   color: #fff;
 }
 
+/* =============================
+   RESPONSIVE MEDIA QUERIES
+============================= */
+/* Tweak hero image & headings for smaller screens */
 @media (max-width: 768px) {
   .hero-image img {
     max-width: 100%;
   }
-}
-
-@media (max-width: 768px) {
-  .nav-menu ul {
-    flex-direction: column;   /* stack links in a column */
-    align-items: center;
-  }
-}
-
-@media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2rem;  /* or whichever size you prefer */
+    font-size: 2rem;
   }
-}
-
-@media (max-width: 768px) {
   .home-section {
-    padding: 20px; /* smaller padding on mobile */
+    padding: 20px;
   }
 }
 
-@media (max-width: 768px) {
-  .main-header {
-    flex-direction: row; 
-    align-items: center;
-    justify-content: space-between; /* places logo on left, hamburger on right */
+/* Desktop (>=769px): show desktop nav, hide mobile menu */
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: block;
   }
-}
-
-  /* Now stack nav links in a column (you already do this, but let's ensure they're neatly spaced) */
-  .nav-menu ul {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5px;
-  }
-
-  /* Optional: reduce gap between nav menu items if needed */
-  .nav-menu ul {
-    gap: 15px; /* or any smaller value than 20px */
-  }
-
-  /* Center the logo if you’d like extra spacing below it */
-  .logo {
-    margin-bottom: 5px;
-  }
-}
-/* Basic header layout (logo + hamburger icon on the right) */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #1a1a1a;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-/* Hamburger icon (3 lines) */
-.hamburger {
-  display: none; /* Hidden on desktop by default */
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #fff; /* White bars */
-  transition: all 0.3s ease;
-}
-
-/* The mobile slide-out menu (hidden offscreen initially) */
-.mobile-nav {
-  position: fixed;
-  top: 0;
-  right: -100%;   /* keep it off-screen to the right */
-  width: 60%;
-  height: 100%;
-  background: #111; /* or #000; your dark color */
-  transition: right 0.4s ease;
-  padding: 20px;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.5); 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.mobile-nav .nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.mobile-nav .nav-header h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-.mobile-nav .close-btn {
-  background: #39ff00; /* bright green circle or something you like */
-  border: none;
-  border-radius: 50%;
-  color: #000;
-  font-size: 1.4rem;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-/* Nav links list inside slide-out */
-.mobile-nav ul {
-  list-style: none;
-  margin-top: 20px;
-}
-.mobile-nav li {
-  margin: 15px 0;
-}
-.mobile-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-
-/* When the nav is "open", we shift from right: -100% to right: 0 */
-.mobile-nav.open {
-  right: 0;
-}
-
-/* MEDIA QUERY: Show hamburger on smaller screens, hide normal menu if you want */
-@media (max-width: 768px) {
   .hamburger {
-    display: flex; /* show hamburger icon on mobile */
+    display: none;
   }
-  /* If you have a "regular" .nav-menu ul, hide it at small widths 
-     unless you prefer it displayed always with hamburger as well. 
-     Example:
-       .nav-menu ul {
-         display: none; 
-       }
-  */
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* Mobile (<=768px): show hamburger, hide desktop nav */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
 }
