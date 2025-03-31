@@ -476,3 +476,29 @@ ul {
     padding: 20px; /* smaller padding on mobile */
   }
 }
+
+@media (max-width: 768px) {
+  /* Stack logo & nav vertically in the header */
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* small vertical spacing between logo & nav */
+  }
+
+  /* Now stack nav links in a column (you already do this, but let's ensure they're neatly spaced) */
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  /* Optional: reduce gap between nav menu items if needed */
+  .nav-menu ul {
+    gap: 15px; /* or any smaller value than 20px */
+  }
+
+  /* Center the logo if you’d like extra spacing below it */
+  .logo {
+    margin-bottom: 5px;
+  }
+}
