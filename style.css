@@ -111,10 +111,10 @@ ul {
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: 'Parisienne', cursive;
+  font-size: 2rem;     /* adjust size as desired */
+  letter-spacing: 1px; /* optional for style */
 }
-
 .nav-menu ul {
   display: flex;
   gap: 20px;
