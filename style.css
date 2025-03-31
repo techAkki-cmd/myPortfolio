@@ -482,12 +482,12 @@ ul {
 }
 
 @media (max-width: 768px) {
-  /* Stack logo & nav vertically in the header */
   .main-header {
-    flex-direction: column;
+    flex-direction: row; 
     align-items: center;
-    gap: 10px; /* small vertical spacing between logo & nav */
+    justify-content: space-between; /* places logo on left, hamburger on right */
   }
+}
 
   /* Now stack nav links in a column (you already do this, but let's ensure they're neatly spaced) */
   .nav-menu ul {
