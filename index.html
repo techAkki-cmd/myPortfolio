@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Portfolio - Dark Theme with Monkey & Namaste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  
+  <div id="monkey-entry">
+   
+    <img src="monkey.jpeg" alt="Monkey in a Suit" class="monkey-image" />
+    <div class="overlay-namaste">NAMASTE!</div>
+  </div>
+
+  
+  <header class="main-header">
+    <div class="logo">A.K.</div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section id="home" class="home-section">
+    <div class="hero-content">
+      <h1>I'M <span class="accent">ARIJIT</span></h1>
+      <p class="subtitle">Backend Developer &amp; Aspiring Full Stack Engineer</p>
+      <p class="hero-desc">
+        Sophomore B.Tech student at IIIT Kota, specializing in Java Spring Boot
+        and data structures & algorithms. Highly motivated to build robust
+        backend architectures and transform ideas into real-world solutions.
+      </p>
+      <a href="#about" class="hero-btn">Learn More &rarr;</a>
+    </div>
+    <div class="hero-image">
+      
+      <img src="arjit.jpeg" alt="Hero placeholder" />
+    </div>
+  </section>
+
+  
+  <section id="about" class="dark-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="section-desc">
+        I'm a second-year Computer Science student at IIIT Kota with a passion
+        for Java, Spring Boot, and building scalable backend systems. I enjoy
+        solving complex problems with data structures and algorithms in my spare
+        time. Currently exploring job opportunities, particularly interested in
+        roles focused on backend development or full-stack growth.
+      </p>
+
+       
+    <div class="skills-grid">
+
+     
+      <div class="skill-circle">
+        
+        <div class="circle" data-percent="90"></div>
+        <h3>Java</h3>
+        
+        <div class="monkey-tooltip">
+          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+          <p class="monkey-message">Yes, this is my favorite!</p>
+        </div>
+      </div>
+
+      
+      <div class="skill-circle">
+        <div class="circle" data-percent="80"></div>
+        <h3>Spring Boot</h3>
+        <div class="monkey-tooltip">
+          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+          <p class="monkey-message">
+            Spring Boot makes backend a breeze!
+          </p>
+        </div>
+      </div>
+
+      
+      <div class="skill-circle">
+        <div class="circle" data-percent="75"></div>
+        <h3>DSA</h3>
+        <div class="monkey-tooltip">
+          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+          <p class="monkey-message">I love problem-solving challenges!</p>
+        </div>
+      </div>
+
+     
+      <div class="skill-circle">
+        <div class="circle" data-percent="70"></div>
+        <h3>SQL</h3>
+        <div class="monkey-tooltip">
+          <img src="mnk.jpeg" alt="Monkey" class="tiny-monkey" />
+          <p class="monkey-message">Relational databases are a must-have skill.</p>
+        </div>
+      </div>
+
+    </div> 
+  </div> 
+</section>
+
+  
+  <section id="services" class="dark-section">
+    <div class="container">
+      <h2>What I Do</h2>
+      <div class="services-grid">
+        <div class="service-box">
+          <div class="service-icon">🎨</div>
+          <h3>Web Design</h3>
+          <p>
+            Clean and modern layouts to make your online presence stand out,
+            though I'm mainly a backend developer!
+          </p>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">💻</div>
+          <h3>Backend</h3>
+          <p>
+            Building RESTful APIs, microservices, and robust server-side logic
+            with Java Spring Boot.
+          </p>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">⚙️</div>
+          <h3>DSA & Problem Solving</h3>
+          <p>
+            Implementing efficient solutions using data structures and
+            algorithms in Java.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="resume" class="dark-section">
+    <div class="container">
+      <h2>People I've Worked With</h2>
+      <div class="resume-switch">
+        <button class="active">Experience</button>
+        <!-- Replace 'your-resume-file.pdf' with your actual résumé file path or URL -->
+        <button onclick="window.open('your-resume-file.pdf', '_blank')">Resume</button>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-circle"></div>
+          <div class="timeline-content">
+            <h3>Project Role</h3>
+            <span class="timeline-date">August 2024 - Present</span>
+            <p>
+              Gained hands-on experience in Java Spring Boot. Built REST
+              endpoints for various hackathon projects and improved application
+              performance by more than 30%.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-circle"></div>
+          <div class="timeline-content">
+            <h3>Open Source Contributor</h3>
+            <span class="timeline-date">Aug 2024 - Present</span>
+            <p>
+              Contributed to open source Java frameworks, improving my
+              understanding of enterprise-scale codebases.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+<section id="work" class="dark-section">
+  <div class="container">
+    <h2>My Project</h2>
+    <p class="section-desc">
+      Below is my main project showcasing a **Job Portal** application:
+    </p>
+    <div class="single-project">
+      <img src="arijitportal.jpeg" alt="Job Portal Application" />
+      <div class="project-details">
+        <h3>Job Portal Application</h3>
+        <p>
+          A full-featured platform where employers can post jobs, and 
+          candidates can apply. Built with Java Spring Boot for backend, 
+          integrated RESTful APIs, and secure user authentication.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  <section id="contact" class="dark-section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="section-desc">Get in touch.</p>
+      <form class="contact-form">
+        <label>Name</label>
+        <input type="text" placeholder="Your Name" />
+        <label>Email</label>
+        <input type="email" placeholder="Your Email" />
+        <label>Message</label>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <p><strong>Phone:</strong> +91 7451016676</p>
+        </div>
+        <div class="contact-item">
+          <p><strong>Email:</strong> kumararijit8672@gmail.com</p>
+        </div>
+        <div class="contact-item">
+          <p><strong>Location:</strong> IIIT Kota, Rajasthan, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <footer class="main-footer">
+    <p>&copy; 2025 ARIJIT. All rights reserved.</p>
+  </footer>
+
+  
+
+</body>
+</html>
