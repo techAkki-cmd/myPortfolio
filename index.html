@@ -4,32 +4,27 @@
   <meta charset="UTF-8" />
   <title>My Dark-Themed Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Fonts (Optional) -->
+  
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
     rel="stylesheet"
   />
-  <!-- Main CSS -->
+ 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ==============================
-       MONKEY OVERLAY ON LOAD
-  =============================== -->
   <div id="monkey-entry">
     <img src="monkey.jpeg" alt="Monkey" class="monkey-image" />
     <div class="overlay-namaste">NAMASTE!</div>
   </div>
 
-  <!-- ==============================
-       HEADER
-  =============================== -->
+  
   <header class="main-header">
-    <!-- Logo -->
+   
     <div class="logo">ARIJIT'S PORTFOLIO</div>
 
-    <!-- DESKTOP NAV: visible on wider screens -->
+    
     <nav class="nav-menu desktop-nav">
       <ul>
         <li><a href="#home" class="active">Home</a></li>
@@ -41,14 +36,14 @@
       </ul>
     </nav>
 
-    <!-- HAMBURGER ICON: shown on mobile -->
+    
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
 
-    <!-- SLIDE-OUT NAV: appears when hamburger is clicked -->
+    
     <nav class="mobile-nav" id="mobileNav">
       <div class="nav-header">
         <h2>Navigation</h2>
@@ -66,9 +61,7 @@
     </nav>
   </header>
 
-  <!-- ==============================
-       HOME SECTION
-  =============================== -->
+ 
   <section id="home" class="home-section">
     <div class="hero-content">
       <h1>I AM <span id="typed"></span></h1>
@@ -85,9 +78,7 @@
     </div>
   </section>
 
-  <!-- ==============================
-       ABOUT SECTION
-  =============================== -->
+ 
   <section id="about" class="dark-section">
     <div class="container">
       <h2>About Me</h2>
@@ -97,9 +88,9 @@
         my forte. Ready to take on new adventures in software development!
       </p>
 
-      <!-- Skills Grid with Monkey Tooltips -->
+      
       <div class="skills-grid">
-        <!-- Java Skill -->
+        
         <div class="skill-circle">
           <div class="circle" data-percent="90"></div>
           <h3>Java</h3>
@@ -109,7 +100,7 @@
           </div>
         </div>
 
-        <!-- Spring Boot Skill -->
+       
         <div class="skill-circle">
           <div class="circle" data-percent="80"></div>
           <h3>Spring Boot</h3>
@@ -119,7 +110,7 @@
           </div>
         </div>
 
-        <!-- DSA Skill -->
+       
         <div class="skill-circle">
           <div class="circle" data-percent="75"></div>
           <h3>DSA</h3>
@@ -129,7 +120,7 @@
           </div>
         </div>
 
-        <!-- SQL Skill -->
+        
         <div class="skill-circle">
           <div class="circle" data-percent="70"></div>
           <h3>SQL</h3>
@@ -142,9 +133,7 @@
     </div>
   </section>
 
-  <!-- ==============================
-       SERVICES SECTION
-  =============================== -->
+  
   <section id="services" class="dark-section">
     <div class="container">
       <h2>Services</h2>
@@ -177,16 +166,14 @@
     </div>
   </section>
 
-  <!-- ==============================
-       RESUME SECTION
-  =============================== -->
+  
   <section id="resume" class="dark-section">
     <div class="container">
       <h2>Experience & Resume</h2>
       <div class="resume-switch">
         <button class="active">Experience</button>
-        <!-- Replace with your PDF link or file -->
-        <button onclick="window.open('your-resume-file.pdf', '_blank')">Resume</button>
+        <!-- Replace with my PDF link or file -->
+        <button onclick="window.open('my-resume-file.pdf', '_blank')">Resume</button>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -214,9 +201,7 @@
     </div>
   </section>
 
-  <!-- ==============================
-       WORK (PROJECTS) SECTION
-  =============================== -->
+  
   <section id="work" class="dark-section">
     <div class="container">
       <h2>My Project</h2>
@@ -237,9 +222,7 @@
     </div>
   </section>
 
-  <!-- ==============================
-       CONTACT SECTION
-  =============================== -->
+  
   <section id="contact" class="dark-section">
     <div class="container">
       <h2>Contact</h2>
@@ -270,16 +253,12 @@
     </div>
   </section>
 
-  <!-- ==============================
-       FOOTER
-  =============================== -->
+  
   <footer class="main-footer">
     <p>&copy; 2025 Arijit Kumar. All rights reserved.</p>
   </footer>
 
-  <!-- ==============================
-       JS FOR HAMBURGER TOGGLE
-  =============================== -->
+  
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
@@ -302,14 +281,14 @@
     const currentWord = words[currentWordIndex];
 
     if (!isDeleting) {
-      // Typing forward
+      
       typedSpan.textContent = currentWord.slice(0, currentCharIndex + 1);
       currentCharIndex++;
       if (currentCharIndex === currentWord.length) {
         setTimeout(() => { isDeleting = true; }, DELAY_BETWEEN_WORDS);
       }
     } else {
-      // Erasing backward
+    
       typedSpan.textContent = currentWord.slice(0, currentCharIndex - 1);
       currentCharIndex--;
       if (currentCharIndex === 0) {
@@ -325,7 +304,7 @@
     setTimeout(typeWords, speed);
   }
 
-  // Start the animation
+  
   typeWords();
   </script>
 </body>
