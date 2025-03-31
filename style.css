@@ -1,3 +1,8 @@
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 * {
   margin: 0;
@@ -445,4 +450,29 @@ ul {
   background: #1a1a1a;
   font-size: 0.85rem;
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hero-image img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu ul {
+    flex-direction: column;   /* stack links in a column */
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;  /* or whichever size you prefer */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    padding: 20px; /* smaller padding on mobile */
+  }
 }
