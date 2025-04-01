@@ -229,6 +229,8 @@
       <p class="section-desc">
         Drop me a line on any queries or opportunities.
       </p>
+  
+      <!-- CONTACT FORM -->
       <form class="contact-form">
         <label>Name</label>
         <input type="text" placeholder="Your Name" />
@@ -236,18 +238,26 @@
         <label>Email</label>
         <input type="email" placeholder="Your Email" />
   
-        <!-- Keep the label text clean. Just place an empty .sec-badge -->
-        <label>Message
+        <!-- MESSAGE LABEL + BADGE FOR "FEEL FREE TO SHARE..." -->
+        <label for="msgArea">
+          Message
+          <!-- The badge is empty in HTML so no stray "(?)" on mobile.
+               The text is stored in data-text for the tooltip/inline display. -->
           <span
             class="sec-badge"
             data-text="Feel free to share, it's Spring Boot secured"
           ></span>
         </label>
-        <textarea placeholder="Your Message"></textarea>
+        <textarea
+          id="msgArea"
+          name="message"
+          placeholder="Your Message"
+        ></textarea>
   
         <button type="submit" class="send-btn">Send Message</button>
       </form>
   
+      <!-- CONTACT DETAILS -->
       <div class="contact-details">
         <div class="contact-item">
           <p><strong>Phone:</strong> +91 7451016676</p>
@@ -261,7 +271,7 @@
       </div>
     </div>
   </section>
-  
+
   <footer class="main-footer">
     <p>&copy; 2025 Arijit Kumar. All rights reserved.</p>
   </footer>

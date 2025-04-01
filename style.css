@@ -570,16 +570,15 @@ section[id] {
   color: #008fff;        
   letter-spacing: 1px;
 }
-/* Base styling for the badge container */
+/* Badge container, initially empty */
 .sec-badge {
   display: inline-block;
   position: relative;
   cursor: help;
-  margin-left: 6px;  /* small gap from the word "Message" */
+  margin-left: 6px;
 }
 
-/* The tooltip text is stored in data-text (hidden by default). 
-   We'll reveal it specifically on desktop hover or mobile inline. */
+/* The tooltip text stored in data-text is hidden by default (shown only on hover or mobile). */
 .sec-badge::after {
   content: attr(data-text);
   display: none;              
@@ -597,37 +596,43 @@ section[id] {
   z-index: 9999;
 }
 
-/* DESKTOP ONLY: show "(?)" in .sec-badge::before, reveal tooltip on hover */
+/* Desktop (>=769px): show "(?)" and reveal tooltip on hover */
 @media (min-width: 769px) {
+  /* The visible "(?)" after "Message" */
   .sec-badge::before {
     content: "(?)";
     color: #008fff; 
-    font-weight: 700; 
+    font-weight: 700;
   }
+  /* Hover displays the tooltip */
   .sec-badge:hover::after {
     display: block;
     animation: fadeIn 0.3s ease forwards;
   }
 }
 
-/* MOBILE ONLY: no question mark, show text inline 
-   so user sees it below the label without hover */
+/* Mobile (<=768px): no question mark, show the note inline (replacing the placeholder) */
 @media (max-width: 768px) {
-  /* Hide the (?), only show text inline */
+  /* Hide "(?)" */
   .sec-badge::before {
     content: "";
   }
+  /* Display the data-text inline as a second line under "Message" */
   .sec-badge::after {
     display: block;
-    position: static;   /* normal flow => new line under label */
-    transform: none;         
-    margin-top: 4px;    /* small spacing above the text */
-    white-space: normal;/* wrap text if needed on narrow screens */
-    opacity: 1;         /* fully visible */
+    position: static;
+    transform: none;
+    white-space: normal;  /* Wrap if needed */
+    margin-top: 4px;
+    opacity: 1;
+  }
+  /* Hide the default placeholder text on mobile */
+  #msgArea::placeholder {
+    color: transparent;
   }
 }
 
-/* Fade-in for desktop tooltip */
+/* Simple fade-in animation for desktop tooltip */
 @keyframes fadeIn {
   0% {
     opacity: 0;
