@@ -238,11 +238,9 @@
         <label>Email</label>
         <input type="email" placeholder="Your Email" />
   
-        <!-- MESSAGE LABEL + BADGE FOR "FEEL FREE TO SHARE..." -->
+        <!-- On desktop, this label shows "(?)" with a tooltip. On mobile, hidden. -->
         <label for="msgArea">
           Message
-          <!-- The badge is empty in HTML so no stray "(?)" on mobile.
-               The text is stored in data-text for the tooltip/inline display. -->
           <span
             class="sec-badge"
             data-text="Feel free to share, it's Spring Boot secured"
@@ -270,8 +268,66 @@
         </div>
       </div>
     </div>
-  </section>
-
+  
+    <!-- STYLES & SCRIPT FOR THE SPRING BOOT SECURED BADGE + DYNAMIC PLACEHOLDER -->
+    <style>
+      /* Badge container, initially empty in HTML */
+      .sec-badge {
+        display: inline-block;
+        position: relative;
+        cursor: help;
+        margin-left: 6px;
+      }
+      /* Tooltip text in data-text (desktop only) */
+      .sec-badge::after {
+        content: attr(data-text);
+        display: none;
+        position: absolute;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1a1a1a;
+        border: 2px solid #fff;
+        border-radius: 4px;
+        color: #ffeb3b;
+        white-space: nowrap;        
+        padding: 6px 10px;
+        opacity: 0;
+        z-index: 9999;
+      }
+  
+      /* DESKTOP: show "(?)" and tooltip on hover */
+      @media (min-width: 769px) {
+        .sec-badge::before {
+          content: "(?)";
+          color: #008fff;
+          font-weight: 700;
+        }
+        .sec-badge:hover::after {
+          display: block;
+          animation: fadeIn 0.3s ease forwards;
+        }
+      }
+  
+      /* MOBILE: no "(?)", no inline text, let JS handle placeholder */
+      @media (max-width: 768px) {
+        .sec-badge::before {
+          content: "";
+        }
+      }
+  
+      /* Fade-in animation for tooltip on desktop */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -8px);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+    </style>
   <footer class="main-footer">
     <p>&copy; 2025 Arijit Kumar. All rights reserved.</p>
   </footer>
@@ -324,6 +380,22 @@
 
   
   typeWords();
+
+  const msgArea = document.getElementById('msgArea');
+    const MOBILE_PLACEHOLDER = "Feel free to share, it's Spring Boot secured";
+    const DESKTOP_PLACEHOLDER = "Your Message";
+
+    function updateMsgPlaceholder() {
+      if (window.innerWidth <= 768) {
+        msgArea.placeholder = MOBILE_PLACEHOLDER;
+      } else {
+        msgArea.placeholder = DESKTOP_PLACEHOLDER;
+      }
+    }
+
+    // Run on load + whenever window is resized
+    window.addEventListener('load', updateMsgPlaceholder);
+    window.addEventListener('resize', updateMsgPlaceholder);
   </script>
 </body>
 </html>
