@@ -238,9 +238,11 @@
         <label>Email</label>
         <input type="email" placeholder="Your Email" />
   
-        <!-- On desktop, this label shows "(?)" with a tooltip. On mobile, hidden. -->
+        <!-- DESKTOP: shows Message (?) with hover tooltip
+             MOBILE : no (?) at all -->
         <label for="msgArea">
           Message
+          <!-- .sec-badge is empty, so we inject "(?)" and tooltip via CSS -->
           <span
             class="sec-badge"
             data-text="Feel free to share, it's Spring Boot secured"
@@ -269,54 +271,54 @@
       </div>
     </div>
   
-    <!-- STYLES & SCRIPT FOR THE SPRING BOOT SECURED BADGE + DYNAMIC PLACEHOLDER -->
+    <!-- STYLES + SCRIPT for the “(?)” tooltip on desktop and mobile placeholder -->
     <style>
-      /* Badge container, initially empty in HTML */
+      /* .sec-badge is an empty span, we add the "(?)" content in CSS for desktop */
       .sec-badge {
         display: inline-block;
         position: relative;
         cursor: help;
         margin-left: 6px;
-      }
-      /* Tooltip text in data-text (desktop only) */
-      .sec-badge::after {
-        content: attr(data-text);
-        display: none;
-        position: absolute;
-        bottom: 125%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #1a1a1a;
-        border: 2px solid #fff;
-        border-radius: 4px;
-        color: #ffeb3b;
-        white-space: nowrap;        
-        padding: 6px 10px;
-        opacity: 0;
-        z-index: 9999;
+        font-family: 'Montserrat', sans-serif; /* ensure same font as your placeholders */
       }
   
-      /* DESKTOP: show "(?)" and tooltip on hover */
+      /* Desktop: create the "(?)" plus a hover tooltip from data-text */
       @media (min-width: 769px) {
         .sec-badge::before {
           content: "(?)";
           color: #008fff;
           font-weight: 700;
         }
+        .sec-badge::after {
+          content: attr(data-text);
+          position: absolute;
+          bottom: 125%;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #1a1a1a;
+          border: 2px solid #fff;
+          border-radius: 4px;
+          color: #ffeb3b;
+          padding: 6px 10px;
+          white-space: nowrap;
+          opacity: 0;
+          z-index: 9999;
+          display: none; /* shown only on hover */
+        }
         .sec-badge:hover::after {
           display: block;
-          animation: fadeIn 0.3s ease forwards;
+          animation: fadeIn 0.25s ease forwards;
         }
       }
   
-      /* MOBILE: no "(?)", no inline text, let JS handle placeholder */
+      /* Mobile: hide "(?)" entirely; let JS set the placeholder to the Data-Text */
       @media (max-width: 768px) {
         .sec-badge::before {
           content: "";
         }
       }
   
-      /* Fade-in animation for tooltip on desktop */
+      /* Fade-in for desktop tooltip */
       @keyframes fadeIn {
         0% {
           opacity: 0;
@@ -328,11 +330,9 @@
         }
       }
     </style>
-  <footer class="main-footer">
-    <p>&copy; 2025 Arijit Kumar. All rights reserved.</p>
-  </footer>
+    </section>
 
-  
+
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
@@ -385,7 +385,7 @@
     const MOBILE_PLACEHOLDER = "Feel free to share, it's Spring Boot secured";
     const DESKTOP_PLACEHOLDER = "Your Message";
 
-    function updateMsgPlaceholder() {
+    function updateTextAreaPlaceholder() {
       if (window.innerWidth <= 768) {
         msgArea.placeholder = MOBILE_PLACEHOLDER;
       } else {
@@ -393,9 +393,10 @@
       }
     }
 
-    // Run on load + whenever window is resized
-    window.addEventListener('load', updateMsgPlaceholder);
-    window.addEventListener('resize', updateMsgPlaceholder);
+    // Run once when page loads, and whenever window is resized
+    window.addEventListener('load', updateTextAreaPlaceholder);
+    window.addEventListener('resize', updateTextAreaPlaceholder);
+  
   </script>
 </body>
 </html>
