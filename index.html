@@ -172,7 +172,7 @@
       <h2>Experience & Resume</h2>
       <div class="resume-switch">
         <button class="active">Experience</button>
-        <!-- Replace with my PDF link or file -->
+       
         <button onclick="window.open('my-resume-file.pdf', '_blank')">Resume</button>
       </div>
       <div class="timeline">
@@ -230,7 +230,7 @@
         Drop me a line on any queries or opportunities.
       </p>
   
-      <!-- CONTACT FORM -->
+      
       <form class="contact-form">
         <label>Name</label>
         <input type="text" placeholder="Your Name" />
@@ -238,11 +238,10 @@
         <label>Email</label>
         <input type="email" placeholder="Your Email" />
   
-        <!-- DESKTOP: shows Message (?) with hover tooltip
-             MOBILE : no (?) at all -->
+        
         <label for="msgArea">
           Message
-          <!-- .sec-badge is empty, so we inject "(?)" + tooltip via CSS on desktop -->
+          
           <span
             class="sec-badge"
             data-text="Feel free to share, it's Spring Boot secured"
@@ -257,7 +256,7 @@
         <button type="submit" class="send-btn">Send Message</button>
       </form>
   
-      <!-- CONTACT DETAILS -->
+     
       <div class="contact-details">
         <div class="contact-item">
           <p><strong>Phone:</strong> +91 7451016676</p>
@@ -271,15 +270,15 @@
       </div>
     </div>
   
-    <!-- STYLES + SCRIPT for the “(?)” tooltip and dynamic placeholder -->
+    
     <style>
-      /* Uniform font for all placeholders */
+      
       input::placeholder,
       textarea::placeholder {
         font-family: 'Montserrat', sans-serif;
       }
   
-      /* Match the font in each input & textarea */
+     
       input[type="text"],
       input[type="email"],
       textarea {
@@ -294,7 +293,7 @@
         font-family: 'Montserrat', sans-serif;
       }
   
-      /* Desktop: create the "(?)" plus a hover tooltip from data-text */
+     
       @media (min-width: 769px) {
         .sec-badge::before {
           content: "(?)";
@@ -315,7 +314,7 @@
           white-space: nowrap;
           opacity: 0;
           z-index: 9999;
-          display: none; /* shown only on hover */
+          display: none; 
         }
         .sec-badge:hover::after {
           display: block;
@@ -323,14 +322,14 @@
         }
       }
   
-      /* Mobile: hide "(?)" entirely; let JS set the placeholder text to the Data-Text */
+     
       @media (max-width: 768px) {
         .sec-badge::before {
           content: "";
         }
       }
   
-      /* Fade-in effect for desktop tooltip */
+      
       @keyframes fadeIn {
         0% {
           opacity: 0;
@@ -405,7 +404,7 @@
       }
     }
 
-    // Run once when page loads, and whenever window is resized
+    
     window.addEventListener('load', updateTextAreaPlaceholder);
     window.addEventListener('resize', updateTextAreaPlaceholder);
   
