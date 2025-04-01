@@ -570,3 +570,65 @@ section[id] {
   color: #008fff;        
   letter-spacing: 1px;
 }
+/* SPRING BOOT SECURED BADGE */
+.sec-badge {
+  position: relative;
+  cursor: help;        /* indicates a tooltip / help text */
+  color: #008fff;      /* highlight color (blueish) */
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+/* The tooltip text is stored in data-text, shown on hover (desktop) */
+.sec-badge::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 50%;
+  bottom: 120%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #ffeb3b;      /* bright yellow for contrast */
+  padding: 6px 10px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  display: none;       /* hidden by default, except on hover or mobile */
+  opacity: 0;
+  z-index: 9999;
+}
+
+/* Hover effect with a small fade-in on desktop/laptop (above 768px) */
+@media (min-width: 769px) {
+  .sec-badge:hover::after {
+    display: block;
+    animation: fadeIn 0.3s ease forwards;
+  }
+}
+
+/* On mobile (<=768px), display the text inline right away (no hover) */
+@media (max-width: 768px) {
+  .sec-badge::after {
+    display: block;
+    position: static;          /* revert positioning so it flows inline */
+    transform: none;
+    margin-top: 3px;
+    bottom: auto;
+    left: auto;
+    opacity: 1;
+    white-space: normal;       /* wrap text if narrower screens */
+  }
+}
+
+/* Simple fadeIn animation for desktop tooltip */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
