@@ -242,7 +242,7 @@
              MOBILE : no (?) at all -->
         <label for="msgArea">
           Message
-          <!-- .sec-badge is empty, so we inject "(?)" and tooltip via CSS -->
+          <!-- .sec-badge is empty, so we inject "(?)" + tooltip via CSS on desktop -->
           <span
             class="sec-badge"
             data-text="Feel free to share, it's Spring Boot secured"
@@ -271,15 +271,27 @@
       </div>
     </div>
   
-    <!-- STYLES + SCRIPT for the “(?)” tooltip on desktop and mobile placeholder -->
+    <!-- STYLES + SCRIPT for the “(?)” tooltip and dynamic placeholder -->
     <style>
-      /* .sec-badge is an empty span, we add the "(?)" content in CSS for desktop */
+      /* Uniform font for all placeholders */
+      input::placeholder,
+      textarea::placeholder {
+        font-family: 'Montserrat', sans-serif;
+      }
+  
+      /* Match the font in each input & textarea */
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-family: 'Montserrat', sans-serif;
+      }
+  
       .sec-badge {
         display: inline-block;
         position: relative;
         cursor: help;
         margin-left: 6px;
-        font-family: 'Montserrat', sans-serif; /* ensure same font as your placeholders */
+        font-family: 'Montserrat', sans-serif;
       }
   
       /* Desktop: create the "(?)" plus a hover tooltip from data-text */
@@ -311,14 +323,14 @@
         }
       }
   
-      /* Mobile: hide "(?)" entirely; let JS set the placeholder to the Data-Text */
+      /* Mobile: hide "(?)" entirely; let JS set the placeholder text to the Data-Text */
       @media (max-width: 768px) {
         .sec-badge::before {
           content: "";
         }
       }
   
-      /* Fade-in for desktop tooltip */
+      /* Fade-in effect for desktop tooltip */
       @keyframes fadeIn {
         0% {
           opacity: 0;
