@@ -570,65 +570,72 @@ section[id] {
   color: #008fff;        
   letter-spacing: 1px;
 }
-/* SPRING BOOT SECURED BADGE */
-.sec-badge {
-  position: relative;
-  cursor: help;        /* indicates a tooltip / help text */
-  color: #008fff;      /* highlight color (blueish) */
-  margin-left: 6px;
-  font-weight: 600;
-}
-
-/* The tooltip text is stored in data-text, shown on hover (desktop) */
-.sec-badge::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 50%;
-  bottom: 120%;
-  transform: translateX(-50%);
-  background: #1a1a1a;
-  color: #ffeb3b;      /* bright yellow for contrast */
-  padding: 6px 10px;
-  border: 2px solid #fff;
-  border-radius: 4px;
-  text-align: center;
-  white-space: nowrap;
-  pointer-events: none;
-  display: none;       /* hidden by default, except on hover or mobile */
-  opacity: 0;
-  z-index: 9999;
-}
-
-/* Hover effect with a small fade-in on desktop/laptop (above 768px) */
-@media (min-width: 769px) {
-  .sec-badge:hover::after {
-    display: block;
-    animation: fadeIn 0.3s ease forwards;
+/* Base style for the badge. 
+   The question mark itself stays empty by default. */
+   .sec-badge {
+    position: relative;
+    cursor: help;
+    display: inline-block;
+    margin-left: 8px;
   }
-}
-
-/* On mobile (<=768px), display the text inline right away (no hover) */
-@media (max-width: 768px) {
+  
+  /* The text stored in data-text is invisible by default. We'll reveal it. */
   .sec-badge::after {
-    display: block;
-    position: static;          /* revert positioning so it flows inline */
-    transform: none;
-    margin-top: 3px;
-    bottom: auto;
-    left: auto;
-    opacity: 1;
-    white-space: normal;       /* wrap text if narrower screens */
-  }
-}
-
-/* Simple fadeIn animation for desktop tooltip */
-@keyframes fadeIn {
-  0% {
+    content: attr(data-text);
+    display: none;              /* hidden by default */
+    position: absolute;
+    left: 50%;
+    bottom: 125%;
+    transform: translateX(-50%);
+    padding: 6px 10px;
+    background: #1a1a1a;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #ffeb3b;
+    white-space: nowrap;        /* keep it on one line if it’s shown */
     opacity: 0;
-    transform: translate(-50%, -8px);
+    z-index: 9999;
   }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, 0);
+  
+  /* DESKTOP ONLY: Show “(?)” after label, reveal tooltip on hover */
+  @media (min-width: 769px) {
+    .sec-badge::before {
+      /* The actual blue "(?)" appended to 'Message' label */
+      content: "(?)";
+      color: #008fff; 
+      font-weight: 700;
+    }
+  
+    /* On hover, show the tooltip stored in data-text */
+    .sec-badge:hover::after {
+      display: block;
+      animation: fadeIn 0.3s ease forwards;
+    }
   }
-}
+  
+  /* MOBILE ONLY: Hide "?", show the text inline on a single line */
+  @media (max-width: 768px) {
+    .sec-badge::before {
+      /* No question mark on mobile */
+      content: "";
+    }
+    .sec-badge::after {
+      display: inline-block;   /* visible as part of the label */
+      position: static;        /* let it flow inline */
+      transform: none;
+      margin-left: 6px;
+      opacity: 1;
+    }
+  }
+  
+  /* Subtle fade-in animation for desktop tooltip */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
